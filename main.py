@@ -13,7 +13,7 @@ def contact_book():
     contacts = Contact.query().fetch()
     return render_template('contact_book.html', contacts=contacts)
 
-@app.route(r'/Paco', methods=['GET'])
+@app.route(r'/paco', methods=['GET'])
 def stock_list():
     stocks = Stock.query().fetch()
     return render_template('paco.html', stocks=stocks)
@@ -28,11 +28,21 @@ def add_contact():
          contact = Contact(name=request.form.get('name'),precio=request.form.get('precio'))
          contact.put()
          flash('¡Se añadió la marquesita!')
+
+
+@app.route(r'/paco/agregar', methods=['GET','POST'])
+def add_stock():
+    if request.form:
+        stock = Stock(name=request.form.get('name'),quantity=request.form.get('quantity'), price=request.form.get('price'), amount=request.form.get('amount'), comission=request.form.get('comission'), tax=request.form.get('tax'), total_amount=request.form.get('total_amount'), operacion=request.form.get('operacion'), poi=request.form.get('poi'), actual_price=request.form.get('actual_price'), profit=request.form.get('profit'), price_sold=request.form.get('price_sold'), sold_amount=request.form.get('sold_amount'), profit_money=request.form.get('profit_money'))
+        #contact = Contact(name=request.form.get('name'),precio=request.form.get('precio'))
+        stock.put()
+        flash('¡Se añadió la acción!')
+         
 #  print(request.form.get('name'))
       #  print(request.form.get('phone'))
       #  print(request.form.get('email'))
 
-    return render_template('add_contact.html')
+    return render_template('paco.html')
 
 @app.route(r'/contacts/<uid>',methods=['GET'])
 def contact_details(uid):

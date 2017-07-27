@@ -1,0 +1,71 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{ message.decode('utf-8') }}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+<form action="/Paco/agregar" method="post">
+  <fieldset>
+    <legend>Añadir compra</legend>
+
+    <label for="name">Nombre </label>
+    <input id="name" name="name" type="text">
+
+   <label for="quantity">Cantidad</label>
+   <input id="quantity" name="quantity" type="text">
+
+   <label for="price">Precio</label>
+   <input id="price" name="price" type="text">
+
+   <label for="amount">Importe</label>
+   <input id="amount" name="amount" type="text">
+
+   <label for="comission">Comisión</label>
+   <input id="comission" name="comission" type="text">
+
+   <label for="tax">IVA</label>
+   <input id="tax" name="tax" type="text">
+
+   <label for="total">Total</label>
+   <input id="total" name="total" type="text">
+
+   <label for="poi">% invertido</label>
+   <input id="poi" name="poi" type="text">
+
+   <label for="actual_price">Precio Actual</label>
+   <input id="actual_price" name="actual_price" type="text">
+
+   <label for="profit">% Ganancia</label>
+   <input id="profit" name="profit" type="text">
+
+   <label for="price_sold">Precio Vendido</label>
+   <input id="price_sold" name="price_sold" type="text">
+
+   <label for="sold_amount">Importe de la Venta</label>
+   <input id="sold_amount" name="sold_amount" type="text">
+
+   <label for="actual_price">Precio Actual</label>
+   <input id="actual_price" name="actual_price" type="text">
+
+   <label for="profit_money">Ganacia en Dinero</label>
+   <input id="profit_money" name="profit_money" type="text">
+   <!-- <label for="email">Email</label>
+    <input id="email" name="email" type="email">
+-->
+    <button type="submit" name="button">Añadir</button>
+  </fieldset>
+</form>
+
+<p>
+  <a href="/Paco">Regresar</a>
+</p>
+
+{% endblock %}
+  
+

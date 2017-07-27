@@ -10,7 +10,8 @@ class Stock(ndb.Model):
     commission = ndb.FloatProperty()
     tax = ndb.FloatProperty()
     total_amount = ndb.FloatProperty()
-    #percentage of investment
+    operacion = ndb.StringProperty()    
+#percentage of investment
     poi = ndb.FloatProperty()
     actual_price = ndb.FloatProperty()
     #percentage
