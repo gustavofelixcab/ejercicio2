@@ -33,11 +33,15 @@ def add_contact():
 @app.route(r'/paco/agregar', methods=['GET','POST'])
 def add_stock():
     if request.form:
-        stock = Stock(name=request.form.get('name'),quantity=request.form.get('quantity'), price=request.form.get('price'), amount=request.form.get('amount'), comission=request.form.get('comission'), tax=request.form.get('tax'), total_amount=request.form.get('total_amount'), operacion=request.form.get('operacion'), poi=request.form.get('poi'), actual_price=request.form.get('actual_price'), profit=request.form.get('profit'), price_sold=request.form.get('price_sold'), sold_amount=request.form.get('sold_amount'), profit_money=request.form.get('profit_money'))
+        stock = Stock(name=request.form.get('name'),quantity=float(request.form.get('quantity')), price=float(request.form.get('price')), amount=float(request.form.get('amount')),
+                      commission=float(request.form.get('commission')), tax=float(request.form.get('tax')), total_amount=float(request.form.get('total_amount')),
+                      operacion=request.form.get('operacion'), poi=float(request.form.get('poi')), actual_price=float(request.form.get('actual_price')),
+                      profit=float(request.form.get('profit')), price_sold=float(request.form.get('price_sold')), sold_amount=float(request.form.get('sold_amount')),
+                      profit_money=float(request.form.get('profit_money')))
         #contact = Contact(name=request.form.get('name'),precio=request.form.get('precio'))
         stock.put()
         flash('¡Se añadió la acción!')
-         
+
 #  print(request.form.get('name'))
       #  print(request.form.get('phone'))
       #  print(request.form.get('email'))
@@ -69,4 +73,3 @@ def regino():
 
 if __name__ == '__main__':
     app.run()
-
