@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block body %}
+  <h2>{{ stock.name }}</h2>
+  <p>Precio: {{ stock.price }}</p>
+
+  <hr>
+  <form action="/delete" method="post">
+    <input type="hidden" name="uid" value="{{ contact.key.id() }}">
+    <button type="submit">Eliminar</button>
+  </form>
+
+  <p>
+    <a href="/paco">Regresar</a>
+  </p>
+{% endblock %}

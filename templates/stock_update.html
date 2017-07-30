@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block body %}
+  <ul>
+
+    {% for stock in stocks %}
+      <li>
+            {{ stock.name }} <a href="/paco">Ver más</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <a href="/paco/agregar">añadir acción</a>
+{% endblock %}
+
+
+
+
+
